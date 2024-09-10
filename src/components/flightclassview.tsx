@@ -145,7 +145,8 @@ const FlightClasslist: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="container mx-auto px-4 py-4">
+      {/* <div className="container mx-auto px-4 py-4"> */}
+      <div className="container px-4 py-4">
         <h1 className="text-4xl font-bold text-center text-white mb-8">Welcome Admin</h1>
 
         <div className="flex justify-center space-x-8 mb-8">
