@@ -30,7 +30,7 @@ const FlightClassesPage = () => {
     const fetchRelatedData = async () => {
       try {
         const [airlinesRes, flightNumbersRes, departuresRes] = await Promise.all([
-          fetch('/api/getflightclass'),
+          // fetch('/api/getflightclass'),
           fetch('/api/getairlines'),
           fetch('/api/getflightno'),
           fetch('/api/getdepartures'),
@@ -86,11 +86,11 @@ const FlightClassesPage = () => {
                   key={flightClass.id}
                   className="border-b border-gray-300"
                 >
-                {/* <td className="py-2 px-4">{getNameById(flightClass.airlineId, relatedData.airlines)}</td> */}
-                {/* <td className="py-2 px-4">{getNameById(flightClass.flightNumberId, relatedData.flightNumbers)}</td>
-                <td className="py-2 px-4">{getNameById(flightClass.flightNumberId, relatedData.flightNumbers)}</td> */}
                 <td className="py-2 px-4">{getNameById(flightClass.airlineId, relatedData.airlines)}</td>
-                <td className="py-2 px-4">{getNameById(flightClass.airlineId, relatedData.airlines)}</td>
+                <td className="py-2 px-4">{getNameById(flightClass.flightNumberId, relatedData.flightNumbers)}</td>
+                {/* <td className="py-2 px-4">{getNameById(flightClass.flightNumberId, relatedData.flightNumbers)}</td> */}
+                {/* <td className="py-2 px-4">{getNameById(flightClass.airlineId, relatedData.airlines)}</td>
+                <td className="py-2 px-4">{getNameById(flightClass.airlineId, relatedData.airlines)}</td> */}
                 <td className="py-2 px-4">{getNameById(flightClass.departureId, relatedData.departures)}</td>
 
                   <td className="px-4 py-3">{flightClass.className}</td>
