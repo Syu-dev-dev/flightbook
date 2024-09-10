@@ -1,0 +1,1 @@
+export type ModalKind = "edit" | "copy" | "new";
