@@ -4,19 +4,61 @@ import { useEffect, useState } from 'react';
 interface FlightClass {
   id: number;
   className: string;
+  airlineId: number;
+  flightNumberId:number;
+  departureId:number;
   price: number;
   description: string;
+}
+interface RelatedData {
+  // fliclass: { id: number; className: string }[];
+  airlines: { id: number; name: string }[];
+  flightNumbers: { id: number; number: string }[];
+  departures: { id: number; location: string }[];
 }
 
 const FlightClassesPage = () => {
   const [flightClasses, setFlightClasses] = useState<FlightClass[]>([]);
+  const [relatedData, setRelatedData] = useState<RelatedData>({ airlines: [], flightNumbers: [], departures: [] });
 
   useEffect(() => {
     const storedClasses = sessionStorage.getItem('flightClasses');
     if (storedClasses) {
       setFlightClasses(JSON.parse(storedClasses));
     }
+
+    const fetchRelatedData = async () => {
+      try {
+        const [airlinesRes, flightNumbersRes, departuresRes] = await Promise.all([
+          fetch('/api/getflightclass'),
+          fetch('/api/getairlines'),
+          fetch('/api/getflightno'),
+          fetch('/api/getdepartures'),
+        ]);
+
+        const [airlines, flightNumbers, departures] = await Promise.all([
+          airlinesRes.json(),
+          flightNumbersRes.json(),
+          departuresRes.json(),
+        ]);
+
+        setRelatedData({ airlines, flightNumbers, departures });
+      } catch (error) {
+        console.error('Error fetching related data:', error);
+      }
+    };
+
+    
+    fetchRelatedData();
   }, []);
+
+  const getNameById = <T extends { id: number; airlineName?: string; flightno?: string; departure?: string }>(
+    id: number,
+    list: T[]
+  ): string => {
+    const item = list.find((i) => i.id === id);
+    return item ? (item.airlineName || item.flightno || item.departure || 'Unknown') : 'Unknown';
+  };
 
   return (
     <div className="min-h-screen mt-40 px-4">
@@ -44,9 +86,9 @@ const FlightClassesPage = () => {
                   key={flightClass.id}
                   className="border-b border-gray-300"
                 >
-                  <td className="px-4 py-3">{flightClass.className}</td>
-                  <td className="px-4 py-3">{flightClass.className}</td>
-                  <td className="px-4 py-3">{flightClass.className}</td>
+                <td className="py-2 px-4">{getNameById(flightClass.airlineId, relatedData.airlines)}</td>
+                <td className="py-2 px-4">{getNameById(flightClass.flightNumberId, relatedData.flightNumbers)}</td>
+                <td className="py-2 px-4">{getNameById(flightClass.departureId, relatedData.departures)}</td>
 
                   <td className="px-4 py-3">{flightClass.className}</td>
                   <td className="px-4 py-3">${flightClass.price.toFixed(2)}</td>
