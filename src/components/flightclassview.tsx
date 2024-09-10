@@ -149,7 +149,7 @@ const FlightClasslist: React.FC = () => {
       <div className="container px-4 py-4">
         <h1 className="text-4xl font-bold text-center text-white mb-8">Welcome Admin</h1>
 
-        <div className="flex justify-center space-x-8 mb-8">
+        <div className=" space-x-8 mb-8">
           <Link href="/admin">
             <div className="bg-white text-blue-500 px-6 py-4 rounded-lg shadow-lg cursor-pointer hover:bg-gray-100 transition duration-300">
               <h2 className="text-xl font-semibold">AIR LINE LIST</h2>
@@ -175,7 +175,7 @@ const FlightClasslist: React.FC = () => {
           </Link>
         </div>
 
-        <div className="flex justify-center mb-4">
+        <div className=" mb-4">
           <button
             className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300"
             onClick={openCreateForm}
