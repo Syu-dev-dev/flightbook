@@ -76,7 +76,7 @@ const FlightClassesPage = () => {
                 <th className="px-4 py-2">Departure ~ Arrival </th> 
                 <th className="px-4 py-2">Class</th>
                 <th className="px-4 py-2">Price</th>
-                <th className="px-4 py-2">Description</th>
+                {/* <th className="px-4 py-2">Description</th> */}
                 <th className="px-4 py-2">Action</th>
               </tr>
             </thead>
@@ -93,7 +93,7 @@ const FlightClassesPage = () => {
 
                   <td className="px-4 py-3">{flightClass.className}</td>
                   <td className="px-4 py-3">${flightClass.price.toFixed(2)}</td>
-                  <td className="px-4 py-3">{flightClass.description}</td>
+                  {/* <td className="px-4 py-3">{flightClass.description}</td> */}
                   <td className="px-4 py-3">
                     <button
                       className="py-1 px-3 bg-blue-600 text-white font-semibold rounded-md border border-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300"
