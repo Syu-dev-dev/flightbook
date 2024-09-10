@@ -29,6 +29,9 @@ const FlightClassesPage = () => {
           <table className="w-full text-left border-collapse bg-gray-100 rounded-lg overflow-hidden">
             <thead>
               <tr className="border-b-2 border-gray-300">
+                <th className="px-4 py-2">Airline</th> 
+                <th className="px-4 py-2">Flight No</th> 
+                <th className="px-4 py-2">Departure ~ Arrival </th> 
                 <th className="px-4 py-2">Class</th>
                 <th className="px-4 py-2">Price</th>
                 <th className="px-4 py-2">Description</th>
@@ -41,6 +44,10 @@ const FlightClassesPage = () => {
                   key={flightClass.id}
                   className="border-b border-gray-300"
                 >
+                  <td className="px-4 py-3">{flightClass.className}</td>
+                  <td className="px-4 py-3">{flightClass.className}</td>
+                  <td className="px-4 py-3">{flightClass.className}</td>
+
                   <td className="px-4 py-3">{flightClass.className}</td>
                   <td className="px-4 py-3">${flightClass.price.toFixed(2)}</td>
                   <td className="px-4 py-3">{flightClass.description}</td>
