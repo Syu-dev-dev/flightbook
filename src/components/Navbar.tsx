@@ -80,6 +80,7 @@ return (
 <Link href="/">FlightBooker</Link>
 </div>
     <div className="flex space-x-4">
+    <Link href="/admin" className="text-white hover:text-gray-200">Admin Pannel</Link>
       <Link href="/" className="text-white hover:text-gray-200">Newsletter</Link>
       <Link href="/about" className="text-white hover:text-gray-200">About</Link>
       <Link href="/contact" className="text-white hover:text-gray-200">Contact Us</Link>
