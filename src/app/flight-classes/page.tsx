@@ -86,7 +86,8 @@ const FlightClassesPage = () => {
                   key={flightClass.id}
                   className="border-b border-gray-300"
                 >
-                <td className="py-2 px-4">{getNameById(flightClass.airlineId, relatedData.airlines)}</td>
+                {/* <td className="py-2 px-4">{getNameById(flightClass.airlineId, relatedData.airlines)}</td> */}
+                <td className="py-2 px-4">{getNameById(flightClass.flightNumberId, relatedData.flightNumbers)}</td>
                 <td className="py-2 px-4">{getNameById(flightClass.flightNumberId, relatedData.flightNumbers)}</td>
                 <td className="py-2 px-4">{getNameById(flightClass.departureId, relatedData.departures)}</td>
 
