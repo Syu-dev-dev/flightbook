@@ -7,7 +7,7 @@ export async function POST(breq: Request) {
     try{
         const body = await breq.json();
         // console.log('.....bb33',body)
-        const {airlineId,flightNumberId ,departureId,price,fclassName} = body;
+        const {airlineId,flightNumberId ,departureId,price,className} = body;
 
         // const sampledata={
         //     airlineId: 1,
@@ -22,7 +22,7 @@ export async function POST(breq: Request) {
         //     flightNumberId:flightNumberId ,
         //     departureId:departureId,
         //     price:price,
-        //     className:fclassName
+        //     className:className
         // }
         // console.log('..............dd1',data)
         // console.log('..............dd2',sampledata)
@@ -32,7 +32,7 @@ export async function POST(breq: Request) {
                 flightNumberId:flightNumberId ,
                 departureId:departureId,
                 price:price,
-                className:fclassName
+                className:className
             }
             // data:{
             //     airlineId: 1,

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 interface FlightClassFormProps {
-  onSubmit: (data: { fclassName: string, airlineId: number, flightNumberId:number, departureId:number, price:number }) => void;
-  fcdata?: { id: number, fclassName: string, airlineId: number, flightNumberId: number, departureId: number, price: number };
+  onSubmit: (data: { className: string, airlineId: number, flightNumberId:number, departureId:number, price:number }) => void;
+  fcdata?: { id: number, className: string, airlineId: number, flightNumberId: number, departureId: number, price: number };
   onClose: () => void;
 }
 
@@ -13,7 +13,7 @@ interface RelatedData {
 }
 
 const FlightClassForm: React.FC<FlightClassFormProps> = ({ onSubmit, fcdata, onClose }) => {
-  const [fclassName, setName] = useState(fcdata?.fclassName || '');
+  const [className, setName] = useState(fcdata?.className || '');
   const [airlineId, setAirlineId] = useState(fcdata?.airlineId || undefined);
   const [flightNumberId, setFlightNumberId] = useState(fcdata?.flightNumberId || undefined);
   const [departureId, setDepartureId] = useState(fcdata?.departureId || undefined);
@@ -47,13 +47,13 @@ const FlightClassForm: React.FC<FlightClassFormProps> = ({ onSubmit, fcdata, onC
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit({ fclassName, airlineId: airlineId || 0, flightNumberId: flightNumberId || 0, departureId: departureId || 0, price });
+    onSubmit({ className, airlineId: airlineId || 0, flightNumberId: flightNumberId || 0, departureId: departureId || 0, price });
     onClose(); // Auto-close form after submit
   };
 
   useEffect(() => {
     if (fcdata) {
-      setName(fcdata.fclassName);
+      setName(fcdata.className);
       setAirlineId(fcdata.airlineId);
       setFlightNumberId(fcdata.flightNumberId);
       setDepartureId(fcdata.departureId);
@@ -83,7 +83,7 @@ const FlightClassForm: React.FC<FlightClassFormProps> = ({ onSubmit, fcdata, onC
               <input
                 type="text"
                 id="name"
-                value={fclassName}
+                value={className}
                 onChange={(e) => setName(e.target.value)}
                 required
                 className="mt-2 block w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
